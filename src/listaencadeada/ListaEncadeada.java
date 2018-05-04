@@ -7,6 +7,7 @@ public class ListaEncadeada {
     private int totalDeElementos;
 
     public void adiciona(Object elemento) {
+        
 
     }
 
@@ -38,8 +39,6 @@ public class ListaEncadeada {
 
     }
 
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+   
 
 }
