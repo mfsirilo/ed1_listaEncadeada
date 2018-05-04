@@ -21,10 +21,14 @@ public class ListaEncadeada {
 
     public void adiciona(int posicao, Object elemento) {
         No no = new No(elemento);
+        No noAux = primeiro;
+        //Para percorrer até a posição desejada
+        for(int i = 0; i==posicao-1;i++){
+            noAux = noAux.getProximo();
+        }
         //quando na posicao desejada
-        
-        
-        
+        no.setProximo(noAux.getProximo());
+        noAux.setProximo(no);
     }
 
     public void remove(int posicao) {
