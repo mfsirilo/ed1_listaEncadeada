@@ -21,18 +21,26 @@ public class ListaEncadeada {
 
     public void adiciona(int posicao, Object elemento) {
         No no = new No(elemento);
-        No noAux = primeiro;
-        //Para percorrer até a posição desejada
-        for(int i = 0; i==posicao-1;i++){
-            noAux = noAux.getProximo();
+        No noAux = this.primeiro;
+        if(posicao>this.tamanho()){
+            this.ultimo.setProximo(no);
+            ultimo = no;
+            System.out.println("Você informou uma posição maior que o "
+                    + "número de elementos na lista.\n"
+                    + "O elemento foi insediro no final da lista.");
+        }else{
+            //Para percorrer até a posição desejada
+            for(int i = 0; i==posicao-1;i++){
+                noAux = noAux.getProximo();
+            }
+            //quando na posicao desejada
+            no.setProximo(noAux.getProximo());
+            noAux.setProximo(no);
         }
-        //quando na posicao desejada
-        no.setProximo(noAux.getProximo());
-        noAux.setProximo(no);
     }
 
     public void remove(int posicao) {
-
+        
     }
 
     public int tamanho() { 
