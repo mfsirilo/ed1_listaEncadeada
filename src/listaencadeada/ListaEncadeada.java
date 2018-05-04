@@ -16,9 +16,14 @@ public class ListaEncadeada {
             no.setProximo(primeiro);
             primeiro = no;
         }
+        this.totalDeElementos++;
     }
 
     public void adiciona(int posicao, Object elemento) {
+        No no = new No(elemento);
+        //quando na posicao desejada
+        
+        
         
     }
 
@@ -26,8 +31,8 @@ public class ListaEncadeada {
 
     }
 
-    public int tamanho() {
-        return 0;
+    public int tamanho() { 
+        return totalDeElementos;
     }
 
     public boolean contem(Object o) {
