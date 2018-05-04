@@ -7,12 +7,19 @@ public class ListaEncadeada {
     private int totalDeElementos;
 
     public void adiciona(Object elemento) {
-        
-
+        No no = new No(elemento);
+        if(primeiro==null && ultimo==null){
+            no.setProximo(null);
+            primeiro = no;
+            ultimo = no;
+        }else{
+            no.setProximo(primeiro);
+            primeiro = no;
+        }
     }
 
     public void adiciona(int posicao, Object elemento) {
-
+        
     }
 
     public void remove(int posicao) {
