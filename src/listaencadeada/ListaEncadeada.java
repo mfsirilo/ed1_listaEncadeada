@@ -6,6 +6,10 @@ public class ListaEncadeada {
     private No ultimo;
     private int totalDeElementos;
 
+    public void ListaEncadeada() {
+
+    }
+
     public void Adiciona(Object elemento) {
         No no = new No(elemento);
         if (primeiro == null && ultimo == null) {
@@ -95,6 +99,15 @@ public class ListaEncadeada {
 
     public void RemoveDoFim(Object elemento) {
         Remove(Tamanho());
+    }
+
+    public void ImprimeLista() {
+        No no = this.primeiro;
+        
+        for (int i = 0; i < Tamanho(); i++) {
+            System.out.println("Objeto é "+ no.getElemento());
+            no = no.getProximo();
+        }
     }
 
 }
