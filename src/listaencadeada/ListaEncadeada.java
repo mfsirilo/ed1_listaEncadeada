@@ -6,63 +6,95 @@ public class ListaEncadeada {
     private No ultimo;
     private int totalDeElementos;
 
-    public void adiciona(Object elemento) {
+    public void Adiciona(Object elemento) {
         No no = new No(elemento);
-        if(primeiro==null && ultimo==null){
+        if (primeiro == null && ultimo == null) {
             no.setProximo(null);
             primeiro = no;
             ultimo = no;
-        }else{
+        } else {
             no.setProximo(primeiro);
             primeiro = no;
         }
         this.totalDeElementos++;
     }
 
-    public void adiciona(int posicao, Object elemento) {
+    public void Adiciona(int posicao, Object elemento) {
         No no = new No(elemento);
         No noAux = this.primeiro;
-        if(posicao>this.tamanho()){
+        if (primeiro == null && ultimo == null) {
+            no.setProximo(null);
+            primeiro = no;
+            ultimo = no;
+        } else if (posicao > this.Tamanho()) {
             this.ultimo.setProximo(no);
             ultimo = no;
-            System.out.println("Você informou uma posição maior que o "
-                    + "número de elementos na lista.\n"
+            System.out.println("Você informou uma posição inexistente "
                     + "O elemento foi insediro no final da lista.");
-        }else{
-            //Para percorrer até a posição desejada
-            for(int i = 0; i==posicao-1;i++){
+        } else {
+            for (int i = 0; i == posicao - 1; i++) {
                 noAux = noAux.getProximo();
             }
-            //quando na posicao desejada
             no.setProximo(noAux.getProximo());
             noAux.setProximo(no);
         }
+        this.totalDeElementos++;
     }
 
-    public void remove(int posicao) {
-        
+    public void AdicionaNoComeco(Object elemento) {
+        No no = new No(elemento);
+
+        if (Tamanho() != 0) {
+            no.setProximo(primeiro);
+            primeiro = no;
+        } else {
+            primeiro = no;
+        }
+
+        this.totalDeElementos++;
+
     }
 
-    public int tamanho() { 
+    public int Tamanho() {
         return totalDeElementos;
     }
 
-    public boolean contem(Object o) {
+    public boolean Contem(Object elemento) {
+        No noAux = this.primeiro;
+
+        for (int i = 0; i <= this.totalDeElementos; i++) {
+            if (elemento == noAux.getElemento()) {
+                return true;
+            }
+            noAux = noAux.getProximo();
+        }
+
         return false;
     }
 
-    public void adicionaNoComeco(Object elemento) {
+    public void Remove(int posicao) {
 
+        No noAux = this.primeiro;
+
+        if (posicao > this.Tamanho()) {
+            System.out.println("Você informou uma posição inexistente");
+        } else {
+            for (int i = 1; i <= posicao - 1; i++) {
+                noAux = noAux.getProximo();
+            }
+            noAux.setProximo(noAux.getProximo().getProximo());
+        }
+        this.totalDeElementos--;
     }
 
-    public void removeDoComeco() {
-
+    public void RemoveDoComeco() {
+        No no = this.primeiro;
+        no = primeiro.getProximo();
+        this.totalDeElementos--;
     }
 
-    public void removeDoFim() {
-
+    public void RemoveDoFim(Object elemento) {
+        Remove(Tamanho());
     }
-
-   
 
 }
